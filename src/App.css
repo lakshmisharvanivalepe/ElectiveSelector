@@ -1,0 +1,34 @@
+.homepg{
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  align-items: flex-start;
+}
+.homebody{
+  text-align: center;
+}
+.btn
+{
+  margin-top: 1%;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #7985EE;
+  margin-bottom: 1%;
+}
+.midsection {
+  display: flex;
+}
+.icon {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 2px;
+}
+.text-justify{
+  text-align: justify;
+}
+.headingLogo {
+  margin-top: 3%;
+  height: 50px;
+}

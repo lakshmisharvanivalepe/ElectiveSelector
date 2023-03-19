@@ -1,0 +1,11 @@
+.nav-link{
+    font-weight: 700;
+    font-family: "Helvetica Neue",Helvetica !important;
+    color: #2B3A55;
+}
+.navbar{
+    --bs-navbar-nav-link-padding-x: 1rem;
+    --bs-navbar-padding-y: 0rem;
+    --bs-navbar-brand-padding-y: 0;
+    box-shadow: -15px -15px 10px 10px rgb(0, 0, 0);
+}

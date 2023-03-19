@@ -1,0 +1,15 @@
+.purpbox{
+    width: 60%;
+    display: flex;
+    border-radius: 0;
+    background-color: #8288FF;
+}
+.msg{
+    background-color: white;
+    width: 70%;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+    border-radius: 0;
+    box-shadow: 10px 10px 18px #686edf;
+}
