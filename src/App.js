@@ -47,36 +47,32 @@ const googleicon = {
 };
 
 function App() {
-  // const [value, setValue] = useState("");
+  const [email_id, setEmail] = useState("");
   const [data, setData] = useState("");
 
-
   const handleClick = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const email = result.user.email;
+      setEmail(email);
 
-      try{
-        const result = await signInWithPopup(auth, provider);
-        const email = result.user.email;
-
-        const response = await fetch(
-          "https://electiveselector.onrender.com/profVerify", {
-            method : 'POST' ,
-            headers : {
-              "Content-Type" : 'application/json'
-            }, 
-            body : JSON.stringify({userEmail : email})
-          }
-        );
-        const ans = await response.json();
-        setData(ans.message);
-        // console.log(ans.message);
-
-      } catch(error) {
-        console.error(error);
-        setData("An Error has occured!");
-      }
-
-
-      
+      const response = await fetch(
+        "https://electiveselector.onrender.com/profVerify",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userEmail: email }),
+        }
+      );
+      const ans = await response.json();
+      setData(ans.message);
+      // console.log(ans.message);
+    } catch (error) {
+      console.error(error);
+      setData("An Error has occured!");
+    }
   };
 
   // useEffect(() => {
@@ -106,13 +102,13 @@ function App() {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-
+  const mail = email_id;
   return (
     <div className="homebody">
-      {data && data === "professor" ? (
+      {data && data === "prof" ? (
         <Proff />
       ) : data && data === "student" ? (
-        <StudentHome />
+        <StudentHome emailid = {mail}/>
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>
@@ -194,10 +190,9 @@ function App() {
             <span>Continue with Google</span>
           </Button>
         </div>
-  
       )}
     </div>
   );
- }
+}
 
 export default App;
