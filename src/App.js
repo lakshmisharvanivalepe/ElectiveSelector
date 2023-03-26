@@ -68,7 +68,9 @@ function App() {
       );
       const ans = await response.json();
       setData(ans.message);
-      // console.log(ans.message);
+      
+      console.log(ans.message);
+      // console.log(res);
     } catch (error) {
       console.error(error);
       setData("An Error has occured!");
@@ -106,9 +108,9 @@ function App() {
   return (
     <div className="homebody">
       {data && data === "prof" ? (
-        <Proff />
+        <Proff emailid={mail} />
       ) : data && data === "student" ? (
-        <StudentHome emailid = {mail}/>
+        <StudentHome emailid={mail} />
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>
