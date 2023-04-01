@@ -1,6 +1,10 @@
 import React from "react";
 import "./Home.css";
 import Navbar from "./Navbar";
+import Announcement from "./Announcement";
+import StuElective from "./StuElective";
+import { Route, Routes } from "react-router";
+import Feedback from "./Feedback";
 
 function Home(props) {
   const logout = () => {
@@ -51,47 +55,56 @@ React.useEffect(() => {
 
   return (
     <div className="stuHome">
-      <Navbar />
-      <div className="student">
-        <h4 className="heading">Welcome, Sanskruti</h4>
-        <div className="card">
-          <div className="card-body">Semester 6</div>
-        </div>
-        <h4 style={{ fontSize: "1.2rem", fontWeight: "700" }}>
-          Selected Electives
-        </h4>
-        <div className="row">
-          <div className="col-2"></div>
-          <ol
-            className="col-6 elective-list"
-            style={{ margin: "auto", fontSize: "1rem", fontWeight: "700" }}
-          >
-            <li>
-              <div className="electiveBox">
-                <div className="card-body elective">
-                  <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
-                    {subjectName1}
-                  </h5>
-                  <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
-                    {facultyName1}
-                  </p>
-                </div>
+      <Navbar screen={"stu"} />
+      <div style={{position: "relative", top: "5rem"}} className="student">
+        <Routes>
+          <Route path="/" element={<>
+            <>
+              <h4 className="heading">Welcome, Sanskruti</h4>
+              <div className="card">
+                <div className="card-body">Semester 6</div>
               </div>
-            </li>
-            <li>
-              <div className="electiveBox">
-                <div className="card-body elective">
-                  <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
-                    {subjectName2}
-                  </h5>
-                  <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
-                    {facultyName2}
-                  </p>
-                </div>
+              <h4 style={{ fontSize: "1.2rem", fontWeight: "700" }}>
+                Selected Electives
+              </h4>
+              <div className="row">
+                <div className="col-2"></div>
+                <ol
+                  className="col-6 elective-list"
+                  style={{ margin: "auto", fontSize: "1rem", fontWeight: "700" }}
+                >
+                  <li>
+                    <div className="electiveBox">
+                      <div className="card-body elective">
+                        <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
+                          {subjectName1}
+                        </h5>
+                        <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
+                          {facultyName1}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="electiveBox">
+                      <div className="card-body elective">
+                        <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
+                          {subjectName2}
+                        </h5>
+                        <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
+                          {facultyName2}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
               </div>
-            </li>
-          </ol>
-        </div>
+            </>
+          </>} />
+          <Route path="/announcement" element={<Announcement />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/elecSelec" element={<StuElective />} />
+        </Routes>
       </div>
       <button onClick={logout}>Logout</button>
     </div>

@@ -3,34 +3,23 @@ import Navbar from './Navbar';
 import './Home.css';
 import Electivecard from './Electivecard';
 import Announcement from './Announcement';
+import { Routes, Route } from "react-router-dom";
+import ProfElectiveSelec from './ProfElectiveSelec';
 
 function Proff(props) {
-  const prof_email = props.emailid;
-    const logout =()=>{
-        localStorage.clear();
-        window.location.reload();
-    }
   return (
     <div>
-      <Navbar />
-      <div className="professor">
-        <h4 className="heading">Elective Selection</h4>
-        <select
-          className="form-select card card-body"
-          aria-label="Default select example"
-        >
-          <option value="5">Semester 5</option>
-          <option value="6">Semester 6</option>
-          <option value="7">Semester 7</option>
-        </select>
-        {/* here also we will have map */}
-        <Electivecard number={1} prof_email={prof_email} />
-        <Electivecard number={2} prof_email={prof_email} />
-        {/* <Announcement /> */}
+      <Navbar screen={"prof"}/>
+      <div style={{position: "relative", top: "5rem"}} className="professor">
+        <Routes>
+          <Route path="/" element={<>
+            <Electivecard number={1} />
+            <Electivecard number={2} />
+          </>} />
+          <Route path="/announcement" element={<Announcement />} />
+          <Route path="/elecSelec" element={<ProfElectiveSelec email = {props.emailid} />} />
+         </Routes>
       </div>
-      <button className="defbtn" onClick={logout}>
-        Logout
-      </button>
     </div>
   );
 }

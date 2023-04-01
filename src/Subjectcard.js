@@ -59,9 +59,9 @@ function Subjectcard(props) {
               name="fileName"
               onChange={handleChange}
             />
-            <button type="submit" className="defbtn">
-              Save
-            </button>
+            {/* <button className="defbtn">
+              Clear All
+            </button> */}
           </form>
         </div>
       </div>

@@ -110,8 +110,26 @@ function Electivecard(props) {
 
           }}
         />
+        <Subjectcard
+          onSave={(FormData) => {
+            if(FormData.subjectName === ""){
+              setChoice1({
+                subjectName : "N/A",
+                facultyName : "N/A",
+                fileName : null
+              })
+            }
+            else setChoice1(FormData);
+            // console.log(choice1);
+          }}
+        />
       </div>
-      <button type='submit' onClick={handleSubmit}>Submit</button>
+      {/* schedule and post button pending */}
+      <p></p>
+      <label style={{ fontSize: "0.8rem", fontWeight: "500" }}>
+        Schedule your post <input type="datetime-local" style={{ marginLeft: "0.4rem"}} classname="form-control inputBox" />
+      </label><br></br>
+      <button onClick={handleSubmit} className='defbtn' style={{marginBottom:"1rem", marginTop:"2.5%"}}>Post Elective</button>
     </div>
   );
 }

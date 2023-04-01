@@ -17,11 +17,11 @@ import img4 from "./images/img4.svg";
 import img5 from "./images/img5.svg";
 import ESlogoCircleWN from "./images/ESlogoCircleWN.svg";
 import StudentHome from "./StudentHome";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 // import { SignInWithGoogle } from "./Firebase";
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
-import Proff from "./ProffesorHome";
+import ProffesorHome from "./ProffesorHome";
 import "firebase/auth";
 
 const items = [
@@ -105,12 +105,13 @@ function App() {
     setActiveIndex(newIndex);
   };
   const mail = email_id;
+
   return (
     <div className="homebody">
       {data && data === "prof" ? (
-        <Proff emailid={mail} />
+        <ProffesorHome emailid={mail} />
       ) : data && data === "student" ? (
-        <StudentHome emailid={mail} />
+        <StudentHome style={{position: "relative", top: "10rem"}} emailid={mail} />
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>
@@ -172,7 +173,7 @@ function App() {
                   >
                     <i className="now-ui-icons arrows-1_minimal-left" />
                   </a>
-                  <a
+                  <a 
                     className="carousel-control-next"
                     data-slide="next"
                     onClick={(e) => {
