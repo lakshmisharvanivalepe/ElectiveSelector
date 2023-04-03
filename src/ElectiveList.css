@@ -1,0 +1,35 @@
+.tablebg{
+    padding: 1%;
+}
+
+/* to change default code of bootstrap for strip table row */
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: white !important;
+ }
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+    background-color: #CFE0F8 !important;
+}
+
+.exportbtn{
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #F2E5E5;
+    background-color: #7985EE;
+    border-radius: 3px;
+    border: 0px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.exportbtn:hover{
+    background-color: #5766ef;
+}
+
+.subheadingList{
+    margin: 3% 4% 0 6%;
+    display: flex;
+    justify-content: space-between;
+}

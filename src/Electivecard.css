@@ -20,3 +20,21 @@
     width: 85%;
     margin: auto;
 }
+.postbtn{
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #F2E5E5;
+    background-color: #7985EE;
+    border-radius: 3px;
+    border: 0px;
+    margin-top: 7%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.postbtn:hover{
+    background-color: #5766ef;
+}

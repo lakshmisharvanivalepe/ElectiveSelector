@@ -111,7 +111,7 @@ function App() {
       {data && data === "prof" ? (
         <ProffesorHome emailid={mail} />
       ) : data && data === "student" ? (
-        <StudentHome style={{position: "relative", top: "10rem"}} emailid={mail} />
+        <StudentHome emailid={mail} />
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>
@@ -188,7 +188,7 @@ function App() {
               </Col>
             </Row>
           </Container>
-          <Button className="btn btn-lg btn-primary" onClick={handleClick}>
+          <Button className="btn gglbtn btn-lg btn-primary" onClick={handleClick}>
             <img src={googleicon.src} alt="" className="icon"></img>
             <span>Continue with Google</span>
           </Button>

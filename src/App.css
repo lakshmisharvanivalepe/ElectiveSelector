@@ -8,13 +8,17 @@
 .homebody{
   text-align: center;
 }
-.btn
+.gglbtn
 {
   margin-top: 1%;
   font-weight: 500;
   font-size: 1rem;
   background-color: #7985EE;
   margin-bottom: 1%;
+  border: none !important;
+}
+.gglbtn:hover{
+  background-color: #5766ef;
 }
 .midsection {
   display: flex;

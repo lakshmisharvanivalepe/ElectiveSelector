@@ -101,7 +101,7 @@ React.useEffect(() => {
               </div>
             </>
           </>} />
-          <Route path="/announcement" element={<Announcement />} />
+          <Route path="/announcement" element={<Announcement screen={"stu"} />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/elecSelec" element={<StuElective />} />
         </Routes>

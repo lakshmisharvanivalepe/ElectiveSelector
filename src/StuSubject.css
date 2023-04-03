@@ -3,3 +3,6 @@
     padding-right: 1%;
     text-align: left;
 }
+.selectbtn:hover{
+    background-color: #51D78A;
+}

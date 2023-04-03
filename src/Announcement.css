@@ -1,15 +1,58 @@
 .purpbox{
-    width: 60%;
+    width: 100%;
+     /* width: 60%; */  /* for previous box pattern  */
     display: flex;
     border-radius: 0;
     background-color: #8288FF;
+    flex-direction: column
+     /* position: absolute; */   /* for previous box pattern  */
+     /* left: 20%; */   /* for previous box pattern  */
 }
 .msg{
     background-color: white;
-    width: 70%;
+    width: 40%;
+    /* width: 70%; */  /* for previous box pattern  */
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     padding-top: 1rem;
     border-radius: 0;
     box-shadow: 10px 10px 18px #686edf;
+}
+
+.texting{
+width: 100%;
+background-color: #8288FF;
+position: fixed;
+bottom: 0;
+z-index: 1000 !important;
+height: 100px;
+}
+.InputandBtn{
+display: flex !important;
+flex-direction: row !important;
+align-items: center !important;
+margin-left: 20%;
+margin-right: 20%;
+margin-top: 2%;
+}
+.sendBtn{
+flex: 0;
+margin-left: 10px;
+margin-right: 10px;
+background-color:#51D78A;
+font-weight: 600;
+color: white;
+}
+.sendBtn:hover{
+background-color:#42b976;
+color: white;
+}
+.inputbox{
+flex: 1;
+color: #678983;
+font-weight:500;
+margin-left: 18%;
+width: 25%; 
+margin-top: 38%;
+margin-bottom: 38%;
 }

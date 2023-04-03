@@ -5,10 +5,10 @@ function StuSubject() {
   return (
     <div className="card subjcard stusubj">
       <div className="card-body">
-        <h5 style={{ fontSize: "0.9rem", fontWeight: "700", lineHeight: "1.5rem"}}>Algorithmic Graph Theory</h5>
-        <p style={{ fontSize: "0.6rem", fontWeight: "500",marginBottom: "0.4rem" }}>Dr. Mary Samuel</p>
+        <h5 style={{ fontSize: "1rem", fontWeight: "700", lineHeight: "1.5rem"}}>Algorithmic </h5>
+        <p style={{ fontSize: "0.7rem", fontWeight: "500",marginBottom: "0.4rem" }}>Dr. Mary Samuel</p>
         <button className="defbtn"> Resources</button>
-        <button className="defbtn"> Select</button>
+        <button className="selectbtn defbtn"> Select</button>
       </div>
     </div>
   )

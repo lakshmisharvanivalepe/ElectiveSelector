@@ -129,7 +129,7 @@ function Electivecard(props) {
       <label style={{ fontSize: "0.8rem", fontWeight: "500" }}>
         Schedule your post <input type="datetime-local" style={{ marginLeft: "0.4rem"}} classname="form-control inputBox" />
       </label><br></br>
-      <button onClick={handleSubmit} className='defbtn' style={{marginBottom:"1rem", marginTop:"2.5%"}}>Post Elective</button>
+      <button onClick={handleSubmit} className='postbtn' style={{marginBottom:"1rem", marginTop:"2.5%"}}>Post Elective</button>
     </div>
   );
 }
