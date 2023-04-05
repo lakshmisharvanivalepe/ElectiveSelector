@@ -4,5 +4,22 @@
     text-align: left;
 }
 .selectbtn:hover{
-    background-color: #51D78A;
+    background-color:  #20c966;;
+}
+.dialougeboxbtn{
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #F2E5E5;
+    border-radius: 3px;
+    border: 0px;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 25%;
+    position: relative;
+    right: -35%;
+    bottom: 1.8rem;
 }

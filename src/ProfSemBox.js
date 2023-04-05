@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Proffesorhome.css"
+import { Link } from 'react-router-dom';
 
 function ProfSemBox() {
   return (
@@ -9,8 +10,8 @@ function ProfSemBox() {
                 <h5 style={{ fontSize: "1.1rem", fontWeight: "700", marginRight:"4rem", marginBottom:"0" }}>Semester 5</h5>
             </div>
             <div style={{display: "flex"}}>
-                <button className="sembtn"> Elective 1</button>
-                <button className="sembtn"> Elective 2</button>
+                <Link to="/electivelist"><button className="sembtn">Elective 1</button></Link>
+                <Link to="/electivelist"><button className="sembtn">Elective 2</button></Link>
             </div>
         </div>
     </div>

@@ -25,6 +25,7 @@ function Proff(props) {
           } />
           <Route path="/announcement" element={<Announcement screen = {"prof"} />} />
           <Route path="/elecSelec" element={<ProfElectiveSelec email = {props.emailid} />} />
+          <Route path="/electivelist" element={<ElectiveList />} />
          </Routes>
       </div>
     </div>
