@@ -48,11 +48,14 @@ const googleicon = {
 
 function App() {
   const [email_id, setEmail] = useState("");
+  const [value, setValue] = useState("");
   const [data, setData] = useState("");
 
   const handleClick = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
+      setValue(result.user.email);
+      localStorage.setItem("email", result.user.email);
       const email = result.user.email;
       setEmail(email);
 
@@ -68,7 +71,7 @@ function App() {
       );
       const ans = await response.json();
       setData(ans.message);
-      
+
       console.log(ans.message);
       // console.log(res);
     } catch (error) {
@@ -77,9 +80,34 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   setValue(localStorage.getItem("email"));
-  // }, []);
+  // const handleClick = () => {
+  //   signInWithPopup(auth, provider).then((data) => {
+  //     setValue(data.user.email);
+  //     localStorage.setItem("email", data.user.email);
+  //   });
+  // };
+  async function loadUser(email) {
+    const response = await fetch(
+      "https://electiveselector.onrender.com/profVerify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userEmail: email }),
+      }
+    );
+    const ans = await response.json();
+    setData(ans.message);
+  }
+
+  useEffect(() => {
+    const email = localStorage.getItem("email");
+    if (email) {
+      setValue(email);
+      loadUser(email);
+    }
+  }, []);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
@@ -173,7 +201,7 @@ function App() {
                   >
                     <i className="now-ui-icons arrows-1_minimal-left" />
                   </a>
-                  <a 
+                  <a
                     className="carousel-control-next"
                     data-slide="next"
                     onClick={(e) => {
@@ -188,7 +216,10 @@ function App() {
               </Col>
             </Row>
           </Container>
-          <Button className="btn gglbtn btn-lg btn-primary" onClick={handleClick}>
+          <Button
+            className="btn gglbtn btn-lg btn-primary"
+            onClick={handleClick}
+          >
             <img src={googleicon.src} alt="" className="icon"></img>
             <span>Continue with Google</span>
           </Button>
