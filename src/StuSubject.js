@@ -1,25 +1,30 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./StuSubject.css";
-import DialogTitle from "@mui/material/DialogTitle";
+import { DialogTitle } from '@mui/material';
+// import App from './App'
 import Dialog from "@mui/material/Dialog";
 
-function StuSubject() {
+function StuSubject(props) {
+  
+  const [openDialog, handleDisplay] = useState(false);
+  //const [details, setDetails] = useState([]);
 
-  const [openDialog, handleDisplay] = React.useState(false);
-
+const mail=props.email
   const handleClose = () => {
     handleDisplay(false);
   };
+
 
   const openDialogBox = () => {
     handleDisplay(true);
   };
 
-  return (
+  
+    return (
     <div className="card subjcard stusubj">
       <div className="card-body">
-        <h5 style={{ fontSize: "1rem", fontWeight: "700", lineHeight: "1.5rem"}}>Algorithmic </h5>
-        <p style={{ fontSize: "0.7rem", fontWeight: "500",marginBottom: "0.4rem" }}>Dr. Mary Samuel</p>
+        <h5 style={{ fontSize: "1rem", fontWeight: "700", lineHeight: "1.5rem"}}>{props.subject}</h5>
+        <p style={{ fontSize: "0.7rem", fontWeight: "500",marginBottom: "0.4rem" }}>{props.faculty}</p>
         <button className="defbtn"> Resources</button>
         <button className="selectbtn defbtn" onClick={openDialogBox} > Select</button>
       </div>
@@ -38,6 +43,7 @@ function StuSubject() {
       </Dialog>
     </div>
   )
+//  return(<p>Hei abbe</p>)
 }
 
 export default StuSubject

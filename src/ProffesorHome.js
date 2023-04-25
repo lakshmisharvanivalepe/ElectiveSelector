@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import './Home.css';
 import Announcement from './Announcement';
-import { Routes, Route } from "react-router-dom";
+import  {Route,routes} from "react-router-dom";
 import ProfElectiveSelec from './ProfElectiveSelec';
 import ProfSemBox from './ProfSemBox';
 import "./Proffesorhome.css"
@@ -13,7 +13,7 @@ function Proff(props) {
     <div>
       <Navbar screen={"prof"}/>
       <div style={{position: "relative", top: "5rem"}} className="professor">
-        <Routes>
+        <routes>
           <Route path="/" element={
             <div>
               <h4 className="heading">Students Elective List</h4>
@@ -26,7 +26,7 @@ function Proff(props) {
           <Route path="/announcement" element={<Announcement screen = {"prof"} />} />
           <Route path="/elecSelec" element={<ProfElectiveSelec email = {props.emailid} />} />
           <Route path="/electivelist" element={<ElectiveList />} />
-         </Routes>
+         </routes>
       </div>
     </div>
   );
