@@ -74,7 +74,7 @@ function StuElective(props) {
   return (
     <div>
       <div className="electiveCd">
-        <h5 className="heading elective">Elective 1</h5>
+        <h5 className="heading elective">Elective {props.elecNum}</h5>
         <div className="allsubjcontainer">
           <StuSubject 
             subject={details.subjectName1}
@@ -94,7 +94,7 @@ function StuElective(props) {
         </div>
       </div>
       <div className="electiveCd">
-        <h5 className="heading elective">Elective 2</h5>
+        <h5 className="heading elective">Elective {props.elecNum}</h5>
         <div className="allsubjcontainer">
           <StuSubject
             subject={details.subjectName4}

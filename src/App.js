@@ -23,6 +23,7 @@ import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
 import ProffesorHome from "./ProffesorHome";
 import "firebase/auth";
+import ProfElectiveSelec from "./ProfElectiveSelec";
 
 const items = [
   {
@@ -49,14 +50,18 @@ const googleicon = {
 function App() {
   const [email_id, setEmail] = useState("");
   const [data, setData] = useState("");
+  const [displayName, setDisplayName] = useState("");
 
   const handleClick = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const email = result.user.email;
-      // console.log(result, email)
+      const displayName = result.user.displayName;
       setEmail(email);
+      setDisplayName(displayName);
 
+      console.log(displayName);
+      
       const response = await fetch(
         "https://electiveselector.onrender.com/profVerify",
         {
@@ -105,7 +110,7 @@ function App() {
     if (animating) return;
     setActiveIndex(newIndex);
   };
- 
+
   const mail = email_id;
   return (
     
@@ -113,7 +118,7 @@ function App() {
       {data && data === "prof" ? (
         <ProffesorHome emailid={mail} />
       ) : data && data === "student" ? (
-        <StudentHome emailid={mail} />
+        <StudentHome emailid={mail} displayName={displayName} />
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>

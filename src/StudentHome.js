@@ -11,8 +11,8 @@ function Home(props) {
     localStorage.clear();
     window.location.reload();
   };
-const [details, setDetails] = React.useState(null);
-const [isLoading, setIsLoading] = React.useState(true);
+  const [details, setDetails] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(true);
 
 React.useEffect(() => {
   const getDetails = async () => {
@@ -46,22 +46,25 @@ React.useEffect(() => {
     // }
   };
 
-  getDetails();
-}, []);
+    getDetails();
+  }, []);
 
   if(isLoading) return <p>loading...</p>
 
-  const {subjectName1, subjectName2, facultyName1, facultyName2} = details;
+  const {subjectName1, subjectName2, facultyName1, facultyName2, subjectStatus1, subjectStatus2} = details;
+
+  const nameParts = props.displayName.split(" ");
+  const name = nameParts.length==2 ? nameParts[0] : null;
 
   return (
     <div className="stuHome">
       <Navbar screen={"stu"} />
-      <div style={{position: "relative", top: "5rem"}} className="student">
+      <div className="student">
         <Routes>
           <Route path="/" element={<>
             <>
-              <h4 className="heading">Welcome, {props.emailid}</h4>
-              <div className="card">    
+              <h4 className="heading">Welcome, {name}</h4>
+              <div className="card">
                 <div className="card-body">Semester 6</div>
               </div>
               <h4 style={{ fontSize: "1.2rem", fontWeight: "700" }}>
@@ -72,17 +75,21 @@ React.useEffect(() => {
                 <ol
                   className="col-6 elective-list"
                   style={{ margin: "auto", fontSize: "1rem", fontWeight: "700" }}
+                  //map to be used
                 >
                   <li>
                     <div className="electiveBox">
                       <div className="card-body elective">
                         <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
-                          {subjectName1}
+                          {subjectStatus2==true ? subjectName1 : "Hellow world"}
                         </h5>
                         <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
                           {facultyName1}
                         </p>
                       </div>
+                      {subjectStatus1==true && <div className="downbtn">
+                      <ion-icon name="arrow-down-circle"></ion-icon>
+                      </div>}
                     </div>
                   </li>
                   <li>
@@ -95,6 +102,9 @@ React.useEffect(() => {
                           {facultyName2}
                         </p>
                       </div>
+                      {subjectStatus2==true && <div className="downbtn">
+                      <ion-icon name="arrow-down-circle"></ion-icon>
+                      </div>}
                     </div>
                   </li>
                 </ol>
@@ -103,10 +113,13 @@ React.useEffect(() => {
           </>} />
           <Route path="/announcement" element={<Announcement screen={"stu"} />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/elecSelec" element={<StuElective emailid={props.emailid} />} />
+          <Route path="/elecSelec" element={
+          <div>
+            <StuElective elecNum={"1"}/>
+            <StuElective elecNum={"2"}/>
+          </div>} />
         </Routes>
       </div>
-      <button onClick={logout}>Logout</button>
     </div>
   );
 }

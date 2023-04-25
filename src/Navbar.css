@@ -4,6 +4,7 @@
     color: #2B3A55;
 }
 .navbar{
+    background-color: white;
     position: fixed;
     --bs-navbar-nav-link-padding-x: 1rem;
     --bs-navbar-padding-y: 0rem;

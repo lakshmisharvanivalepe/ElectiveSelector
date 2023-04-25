@@ -17,9 +17,9 @@ function Proff(props) {
           <Route path="/" element={
             <div>
               <h4 className="heading">Students Elective List</h4>
-              <ProfSemBox />
-              <ProfSemBox />
-              <ProfSemBox />
+              <ProfSemBox sem="5"/>
+              <ProfSemBox sem="6"/>
+              <ProfSemBox sem="7"/>
               {/* <ElectiveList /> */}
             </div>
           } />

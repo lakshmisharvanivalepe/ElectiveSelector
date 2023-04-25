@@ -1,11 +1,12 @@
 .elective{
     padding-top: 1.2rem;
-    font-size: 1.2rem;
+    font-size: 1.35rem;
+    padding-left: 1.5rem;
 }
 .electiveCd{
     text-align: center;
     /* width: 80%; */
-    background-color: #CFE1F8;
+    background-color: #e7eaff;
     margin-left: 5%;
     margin-right: 5%;
     border-radius: 20px;
@@ -19,22 +20,37 @@
     flex-wrap: wrap;
     width: 85%;
     margin: auto;
+    margin-top: 1.5rem;
 }
 .postbtn{
-    padding-left: 0.7rem;
-    padding-right: 0.7rem;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    font-size: 0.8rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #F2E5E5;
+    color: #e5e6f2;
     background-color: #7985EE;
     border-radius: 3px;
     border: 0px;
-    margin-top: 7%;
+    margin-top: 2%;
     margin-left: 2%;
     margin-right: 2%;
 }
 .postbtn:hover{
     background-color: #5766ef;
+}
+.form-select{
+    padding-left: 20px;
+}
+.branchoption{
+    display: grid;
+    margin-top: 15px;
+    margin-left: 10px;
+    justify-items: start;
+    gap: 13px 45px;
+    grid-template-columns: repeat(2,50px);
+}
+.form-check-label{
+    margin: 0 2.5rem 0 0.5rem;
 }
