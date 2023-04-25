@@ -3,12 +3,41 @@ import Subjectcard from './Subjectcard';
 import "./Electivecard.css"
 
 function Electivecard(props) {
+    const email = localStorage.getItem("email");
+    // console.log(props.semNum);
 
-  const [choice1, setChoice1] = useState({});
-  const [choice2, setChoice2] = useState({});
-  const [choice3, setChoice3] = useState({});
+
+  const [choice1, setChoice1] = useState({
+    subjectName: "N/A",
+    facultyName: "N/A",
+    fileName: null,
+  });
+  const [choice2, setChoice2] = useState({
+    subjectName: "N/A",
+    facultyName: "N/A",
+    fileName: null,
+  });
+  const [choice3, setChoice3] = useState({
+    subjectName: "N/A",
+    facultyName: "N/A",
+    fileName: null,
+  });
+  const [selectedButtons, setSelectedButtons] = useState([]);
+
+  
+
+  const handleButtonClick = (buttonId) => {
+    setSelectedButtons((prevSelectedButtons) => {
+      if (prevSelectedButtons.includes(buttonId)) {
+        return prevSelectedButtons.filter((id) => id !== buttonId);
+      } else {
+        return [...prevSelectedButtons, buttonId];
+      }
+    });
+  };
 
   const handleSubmit = async () => {
+    // console.log(selectedButtons);
     
     if (
       choice1.subjectName !== "N/A" ||
@@ -24,10 +53,11 @@ function Electivecard(props) {
         hour12 : false
       });
       const  d = date + "-" + month + "-" + year;
+      
 
       const post_details = {
-        semNum: "7",
-        electiveNum: props.number.toString(),
+        semNum: props.semNum,
+        electiveNum: props.number,
         sub1: {
           subTitle: choice1.subjectName,
           facultyName: choice1.facultyName,
@@ -40,9 +70,9 @@ function Electivecard(props) {
           subTitle: choice3.subjectName,
           facultyName: choice3.facultyName,
         },
-        addedBy: props.prof_email,
-        addedTime: d + "\n" + currTime,
-        scheduledAt: "a",
+        branchList: selectedButtons,
+        addedBy: email,
+        addedTime: d + "\n" + currTime
       }; 
 
       console.log(post_details);
@@ -58,8 +88,10 @@ function Electivecard(props) {
       );
       const reply = await response.json();
       console.log(reply);
+      console.log(selectedButtons);
+      // console.log(props.prof_mail);
     } else {
-      console.log("Please atleast one choice!");
+      console.log("Please choose atleast one choice!");
     }
   }
   
@@ -73,21 +105,18 @@ function Electivecard(props) {
         {(data) => {
           setE1(data);
         }} */}
-        <Subjectcard
-          onSave={(FormData) => {
-            if(FormData.subjectName === ""){
+        <Subjectcard onSubmit={(FormData) => {
+            if (FormData.subjectName === "") {
               setChoice1({
-                subjectName : "N/A",
-                facultyName : "N/A",
-                fileName : null
-              })
-            }
-            else setChoice1(FormData);
+                subjectName: "N/A",
+                facultyName: "N/A",
+                fileName: null,
+              });
+            } else setChoice1(FormData);
             // console.log(choice1);
-          }}
-        />
+          }} />
         <Subjectcard
-          onSave={(FormData) => {
+          onSubmit={(FormData) => {
             if (FormData.subjectName === "") {
               setChoice2({
                 subjectName: "N/A",
@@ -95,41 +124,66 @@ function Electivecard(props) {
                 fileName: null,
               });
             } else setChoice2(FormData);
+            // console.log(choice2);
 
           }}
         />
         <Subjectcard
-          onSave={(FormData) => {
-           if (FormData.subjectName === "") {
-             setChoice3({
-               subjectName: "N/A",
-               facultyName: "N/A",
-               fileName: null,
-             });
-           } else setChoice3(FormData);
+          onSubmit={(FormData) => {
+            if (FormData.subjectName === "") {
+              setChoice3({
+                subjectName: "N/A",
+                facultyName: "N/A",
+                fileName: null,
+              });
+            } else setChoice3(FormData);
+            // console.log(choice3);
 
           }}
         />
-        {/* <Subjectcard
-          onSave={(FormData) => {
-            if(FormData.subjectName === ""){
-              setChoice1({
-                subjectName : "N/A",
-                facultyName : "N/A",
-                fileName : null
-              })
-            }
-            else setChoice1(FormData);
-            // console.log(choice1);
-          }}
-        /> */}
+
+        <div>
+          <input
+            type="checkbox"
+            value="IT"
+            name="branch1"
+            onClick={() => handleButtonClick("IT")}
+          />{" "}
+          IT
+          <input
+            type="checkbox"
+            value="IT"
+            name="branch2"
+            onClick={() => handleButtonClick("CS")}
+          />{" "}
+          CS
+          <input
+            type="checkbox"
+            value="IT"
+            name="branch3"
+            onClick={() => handleButtonClick("CSAI")}
+          />{" "}
+          CSAI
+          <input
+            type="checkbox"
+            value="IT"
+            name="branch4"
+            onClick={() => handleButtonClick("CSB")}
+          />{" "}
+          CSB
+        </div>
       </div>
       {/* schedule and post button pending */}
       <p></p>
-      {/* <label style={{ fontSize: "1rem", fontWeight: "500" }}>
-        Schedule your post <input type="datetime-local" style={{ marginLeft: "0.4rem"}} classname="form-control inputBox" />
-      </label><br></br> */}
-      <button onClick={handleSubmit} className='postbtn' style={{marginBottom:"1rem", marginTop:"2.5%"}}>Post Elective</button>
+
+      <br></br>
+      <button
+        onClick={handleSubmit}
+        className="postbtn"
+        style={{ marginBottom: "1rem", marginTop: "2.5%" }}
+      >
+        Post Elective
+      </button>
     </div>
   );
 }
