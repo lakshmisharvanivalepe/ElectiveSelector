@@ -23,6 +23,7 @@ import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
 import ProffesorHome from "./ProffesorHome";
 import "firebase/auth";
+import ProfElectiveSelec from "./ProfElectiveSelec";
 
 const items = [
   {
@@ -50,6 +51,7 @@ function App() {
   const [email_id, setEmail] = useState("");
   const [value, setValue] = useState("");
   const [data, setData] = useState("");
+  const [displayName, setDisplayName] = useState("");
 
   const handleClick = async () => {
     try {
@@ -57,8 +59,12 @@ function App() {
       setValue(result.user.email);
       localStorage.setItem("email", result.user.email);
       const email = result.user.email;
+      const displayName = result.user.displayName;
       setEmail(email);
+      setDisplayName(displayName);
 
+      console.log(displayName);
+      
       const response = await fetch(
         "https://electiveselector.onrender.com/profVerify",
         {
@@ -72,7 +78,9 @@ function App() {
       const ans = await response.json();
       setData(ans.message);
 
+
       console.log(ans.message);
+
       // console.log(res);
     } catch (error) {
       console.error(error);
@@ -132,14 +140,15 @@ function App() {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-  const mail = email_id;
 
+  const mail = email_id;
   return (
+    
     <div className="homebody">
       {data && data === "prof" ? (
         <ProffesorHome emailid={mail} />
       ) : data && data === "student" ? (
-        <StudentHome emailid={mail} />
+        <StudentHome emailid={mail} displayName={displayName} />
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>
@@ -150,15 +159,10 @@ function App() {
                   Welcome!!
                 </h1>
                 <p className="text-justify">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
-                  quas consequatur molestiae? Reprehenderit, obcaecati minima
-                  dolore perspiciatis aliquid temporibus quae fugiat
-                  praesentium! Debitis iste suscipit harum iure perspiciatis
-                  temporibus veniam. Lorem ipsum dolor sit amet consectetur,
-                  adipisicing elit. Nisi quas consequatur molestiae?
-                  Reprehenderit, obcaecati minima dolore perspiciatis aliquid
-                  temporibus quae fugiat praesentium! Debitis iste suscipit
-                  harum iure perspiciatis temporibus veniam.
+                The Elective Selector app helps college students choose elective subjects based on their interests and career goals. It offers 2-4 subject options with resources for each subject, making it easy
+to select electives. Its user-friendly interface and cross-platform compatibility make it accessible and convenient. The app can also include a collaborative community feature for students
+to connect and receive feedback. The Elective Selector app offers a valuable solution to simplify the elective selection and gets rid of the need for manual paper-based processes, speeds up
+elective selection process.
                 </p>
               </Col>
 
@@ -225,7 +229,9 @@ function App() {
           </Button>
         </div>
       )}
+      
     </div>
+   
   );
 }
 

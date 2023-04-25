@@ -10,7 +10,7 @@ function Navbar(props) {
     }
   return (
     <div>
-        <nav className="navbar fixed-top sticky-top navbar-expand-lg bg-light">
+        <nav className="navbar fixed-top sticky-top navbar-expand-lg">
             <div className="container-fluid">
             <NavLink className="navbar-brand" to="/"><img src={ESlogoCircleWN} alt="Bootstrap" width="160" height="80" /></NavLink>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,9 @@ function Navbar(props) {
                 <li className="nav-item">
                     <NavLink style={({isActive})=> { return isActive ? {color: "#7985EE"} :{}}} className="nav-link" to="/announcement" replace>Announcement</NavLink>
                 </li>
-                {
+                {/* {
                   props.screen==="stu" && (<li className="nav-item"><NavLink style={({isActive})=> { return isActive ? {color: "#7985EE"} :{}}} className="nav-link" to="/feedback">Feedback</NavLink></li>)
-                }
+                } */}
                 <li className="nav-item">
                     <NavLink style={({isActive})=> { return isActive ? {color: "#7985EE"} :{}}} className="nav-link" to="/elecSelec">Elective Selection</NavLink>
                 </li>

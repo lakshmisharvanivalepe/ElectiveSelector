@@ -10,10 +10,17 @@
 .card{
     width: 10.5rem;
     margin: auto;
-    background-color: #CFE1F8;
-    border-radius: 7px;
+    background-color: #d7dafc99;
+    box-shadow: 0 2px 5px rgba(11, 25, 65, 0.1);
+    border-radius: 5px;
     margin-bottom: 2.5rem;
     margin-top: 1.8rem;
+    border: none;
+    outline: none;
+}
+
+.card:hover{
+    box-shadow: 0 3px 12px rgba(11, 21, 65, 0.1);
 }
 .card-body{
     padding: 0.5rem;
@@ -27,11 +34,42 @@
 .electiveBox{
     width: 75%;
     text-align: left;
-    background-color: #CFE1F8;
-    border-radius: 7px;
+    border-radius: 5px;
     margin-bottom: 2.5rem;
     margin-top: 1.8rem;
+    background-color: #cdd1ff99;
+    box-shadow: 0 2px 5px rgba(11, 25, 65, 0.1);
+    border: none;
+    outline: none;
+    display: flex;
 }
+.electiveBox:hover{
+    box-shadow: 0 3px 12px rgba(11, 21, 65, 0.1);
+}
+
+.downbtn{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2.2rem;
+    color: #7985EE;
+    margin: 0 1.5rem 0 1.5rem;
+    cursor: pointer;
+}
+
+.downbtn:hover{
+    color: #626cc4;
+}
+
 .elective{
     padding-left: 1rem;
+}
+
+.student{
+    background-color: #eff1ff;
+    position: relative;
+    top: 5rem;
+}
+.row{
+    --bs-gutter-x: 0;
 }

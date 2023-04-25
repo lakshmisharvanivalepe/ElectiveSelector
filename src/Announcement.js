@@ -46,7 +46,7 @@ function Announcement(props) {
           <p style={{textAlign:"left", fontSize:"0.8rem", fontWeight:"600"}}>Elective 1 Released : Algorithmic Graph Theory Dr. xyz Business Analytics by Dr. xyz Blockchain and Technology by Dr. xyz Click here to choose one.</p>
           <p style={{textAlign:"right", fontSize:"0.6rem", fontWeight:"700"}}>Dr. Mainak Adhikari   23/03/23</p>
         </div>
-      {props.screen==="prof" && 
+      {/* {props.screen==="prof" && 
         <div className="texting">
           <form className="InputandBtn">
             <textarea type="text"
@@ -55,12 +55,12 @@ function Announcement(props) {
               // value={inputval}
               // onChange={handleInput}
                 rows="1"></textarea>
-            <button type="submit" className="my-3 btn sendBtn" >
+            <button className="my-3 btn sendBtn" >
               Send
             </button>
           </form>
         </div>
-      }
+      } */}
     </div>
   )
 }

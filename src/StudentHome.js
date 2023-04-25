@@ -11,13 +11,13 @@ function Home(props) {
     localStorage.clear();
     window.location.reload();
   };
-const [details, setDetails] = React.useState(null);
-const [isLoading, setIsLoading] = React.useState(true);
+  const [details, setDetails] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(true);
 
 React.useEffect(() => {
   const getDetails = async () => {
     const email = { userEmail: props.emailid };
-    // try {
+    
       const response = await fetch(
         "https://electiveselector.onrender.com/selectedElectives",
         {
@@ -30,13 +30,15 @@ React.useEffect(() => {
       );
       
       const result = await response.json();
-      const receivedMessage = result.message;
-      console.log(receivedMessage);
+      const sol = result.message;
+      console.log(sol);
       setDetails({
-        subjectName1: receivedMessage.sub1.subTitle,
-        subjectName2: receivedMessage.sub2.subTitle,
-        facultyName1: receivedMessage.sub1.facultyName,
-        facultyName2: receivedMessage.sub2.facultyName
+        subjectName1: sol.sub1.subTitle,
+        subjectName2: sol.sub2.subTitle,
+        facultyName1: sol.sub1.facultyName,
+        facultyName2: sol.sub2.facultyName,
+        subjectStatus1: sol.sub1.subStatus,
+        subjectStatus2: sol.sub2.subStatus
       });
       setIsLoading(false);
       // console.log(details);
@@ -46,21 +48,24 @@ React.useEffect(() => {
     // }
   };
 
-  getDetails();
-}, []);
+    getDetails();
+  }, []);
 
   if(isLoading) return <p>loading...</p>
 
-  const {subjectName1, subjectName2, facultyName1, facultyName2} = details;
+  const {subjectName1, subjectName2, facultyName1, facultyName2, subjectStatus1, subjectStatus2} = details;
+
+  const nameParts = props.displayName.split(" ");
+  const name = nameParts.length==2 ? nameParts[0] : null;
 
   return (
     <div className="stuHome">
       <Navbar screen={"stu"} />
-      <div style={{position: "relative", top: "5rem"}} className="student">
+      <div className="student">
         <Routes>
           <Route path="/" element={<>
             <>
-              <h4 className="heading">Welcome, Sanskruti</h4>
+              <h4 className="heading">Welcome, {name}</h4>
               <div className="card">
                 <div className="card-body">Semester 6</div>
               </div>
@@ -72,17 +77,21 @@ React.useEffect(() => {
                 <ol
                   className="col-6 elective-list"
                   style={{ margin: "auto", fontSize: "1rem", fontWeight: "700" }}
+                  //map to be used
                 >
                   <li>
                     <div className="electiveBox">
                       <div className="card-body elective">
                         <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
-                          {subjectName1}
+                          {subjectStatus2==true ? subjectName1 : "Hellow world"}
                         </h5>
                         <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
                           {facultyName1}
                         </p>
                       </div>
+                      {subjectStatus1==true && <div className="downbtn">
+                      <ion-icon name="arrow-down-circle"></ion-icon>
+                      </div>}
                     </div>
                   </li>
                   <li>
@@ -95,6 +104,9 @@ React.useEffect(() => {
                           {facultyName2}
                         </p>
                       </div>
+                      {subjectStatus2==true && <div className="downbtn">
+                      <ion-icon name="arrow-down-circle"></ion-icon>
+                      </div>}
                     </div>
                   </li>
                 </ol>
@@ -103,10 +115,13 @@ React.useEffect(() => {
           </>} />
           <Route path="/announcement" element={<Announcement screen={"stu"} />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/elecSelec" element={<StuElective />} />
+          <Route path="/elecSelec" element={
+          <div>
+            <StuElective emailid={props.emailid}/>
+            {/* <StuElective emailid={props.emailid} elecNum={"2"}/> */}
+          </div>} />
         </Routes>
       </div>
-      <button onClick={logout}>Logout</button>
     </div>
   );
 }

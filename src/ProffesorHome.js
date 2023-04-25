@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import './Home.css';
 import Announcement from './Announcement';
-import { Routes, Route } from "react-router-dom";
+import  {Route,Routes} from "react-router-dom";
 import ProfElectiveSelec from './ProfElectiveSelec';
 import ProfSemBox from './ProfSemBox';
 import "./Proffesorhome.css"
@@ -17,9 +17,9 @@ function Proff(props) {
           <Route path="/" element={
             <div>
               <h4 className="heading">Students Elective List</h4>
-              <ProfSemBox />
-              <ProfSemBox />
-              <ProfSemBox />
+              <ProfSemBox sem="5"/>
+              <ProfSemBox sem="6"/>
+              <ProfSemBox sem="7"/>
               {/* <ElectiveList /> */}
             </div>
           } />

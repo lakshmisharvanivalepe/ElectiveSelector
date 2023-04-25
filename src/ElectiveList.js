@@ -10,9 +10,9 @@ function ElectiveList() {
             <button className="exportbtn">Export as Sheets</button>
         </div>
         <div className="electiveCd tablebg">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table table-hover">
             <thead>
-                <tr style={{backgroundColor:"#CFE0F8"}}>
+                <tr style={{backgroundColor:"#e7eaff"}}>
                 <th scope="col">S.no</th>
                 <th scope="col">Name</th>
                 <th scope="col">Subject</th>
