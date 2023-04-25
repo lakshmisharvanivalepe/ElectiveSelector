@@ -17,7 +17,7 @@ const [isLoading, setIsLoading] = React.useState(true);
 React.useEffect(() => {
   const getDetails = async () => {
     const email = { userEmail: props.emailid };
-    // try {
+    
       const response = await fetch(
         "https://electiveselector.onrender.com/selectedElectives",
         {
@@ -30,13 +30,13 @@ React.useEffect(() => {
       );
       
       const result = await response.json();
-      const receivedMessage = result.message;
-      console.log(receivedMessage);
+      const sol = result.message;
+      console.log(sol);
       setDetails({
-        subjectName1: receivedMessage.sub1.subTitle,
-        subjectName2: receivedMessage.sub2.subTitle,
-        facultyName1: receivedMessage.sub1.facultyName,
-        facultyName2: receivedMessage.sub2.facultyName
+        subjectName1: sol.sub1.subTitle,
+        subjectName2: sol.sub2.subTitle,
+        facultyName1: sol.sub1.facultyName,
+        facultyName2: sol.sub2.facultyName
       });
       setIsLoading(false);
       // console.log(details);
@@ -60,8 +60,8 @@ React.useEffect(() => {
         <Routes>
           <Route path="/" element={<>
             <>
-              <h4 className="heading">Welcome, Sanskruti</h4>
-              <div className="card">
+              <h4 className="heading">Welcome, {props.emailid}</h4>
+              <div className="card">    
                 <div className="card-body">Semester 6</div>
               </div>
               <h4 style={{ fontSize: "1.2rem", fontWeight: "700" }}>
@@ -103,7 +103,7 @@ React.useEffect(() => {
           </>} />
           <Route path="/announcement" element={<Announcement screen={"stu"} />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/elecSelec" element={<StuElective />} />
+          <Route path="/elecSelec" element={<StuElective emailid={props.emailid} />} />
         </Routes>
       </div>
       <button onClick={logout}>Logout</button>
