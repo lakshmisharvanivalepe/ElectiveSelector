@@ -22,6 +22,7 @@ import {useState } from "react";
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
 import ProffesorHome from "./ProffesorHome";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "firebase/auth";
 import ProfElectiveSelec from "./ProfElectiveSelec";
 
@@ -47,21 +48,26 @@ const googleicon = {
   src: require("./images/white-google-logo.png"),
 };
 
+
+
 function App() {
   const [email_id, setEmail] = useState("");
   const [value, setValue] = useState("");
   const [data, setData] = useState("");
   const [displayName, setDisplayName] = useState("");
 
+  const mail = email_id;
+
   const handleClick = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       setValue(result.user.email);
       localStorage.setItem("email", result.user.email);
+      localStorage.setItem("displayName", result.user.displayName);
       const email = result.user.email;
-      const displayName = result.user.displayName;
+      const Name = result.user.displayName;
       setEmail(email);
-      setDisplayName(displayName);
+      setDisplayName(Name);
 
       console.log(displayName);
       
@@ -80,7 +86,6 @@ function App() {
 
 
       console.log(ans.message);
-
       // console.log(res);
     } catch (error) {
       console.error(error);
@@ -109,7 +114,8 @@ function App() {
     setData(ans.message);
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
+    
     const email = localStorage.getItem("email");
     if (email) {
       setValue(email);
@@ -140,12 +146,14 @@ function App() {
     if (animating) return;
     setActiveIndex(newIndex);
   };
+  
 
-  const mail = email_id;
+  
+
   return (
     
     <div className="homebody">
-      {data && data === "prof" ? (
+      {data === "prof" ? (
         <ProffesorHome emailid={mail} />
       ) : data && data === "student" ? (
         <StudentHome emailid={mail} displayName={displayName} />

@@ -100,7 +100,7 @@ function StuElective(props) {
             subject={details.subjectName4}
             faculty={details.facultyName4}
            
-          />5
+          />
           <StuSubject
             subject={details.subjectName5}
             faculty={details.facultyName5}

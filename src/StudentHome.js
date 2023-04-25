@@ -16,8 +16,12 @@ function Home(props) {
 
 React.useEffect(() => {
   const getDetails = async () => {
-    const email = { userEmail: props.emailid };
     
+    // try {
+    try{
+    // const email = localStorage.getItem("email");
+
+      const email = { userEmail: localStorage.getItem("email") };
       const response = await fetch(
         "https://electiveselector.onrender.com/selectedElectives",
         {
@@ -25,7 +29,7 @@ React.useEffect(() => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(email)
+          body: JSON.stringify(email),
         }
       );
       
@@ -41,11 +45,11 @@ React.useEffect(() => {
         subjectStatus2: sol.sub2.subStatus
       });
       setIsLoading(false);
-      // console.log(details);
-    // } catch (error) {
-    //   console.error(error);
-    //   setDetails("An Error has occured!");
-    // }
+      console.log(details);
+    } catch (error) {
+      console.error(error);
+      setDetails("An Error has occured!");
+    }
   };
 
     getDetails();
@@ -55,8 +59,8 @@ React.useEffect(() => {
 
   const {subjectName1, subjectName2, facultyName1, facultyName2, subjectStatus1, subjectStatus2} = details;
 
-  const nameParts = props.displayName.split(" ");
-  const name = nameParts.length==2 ? nameParts[0] : null;
+  // const nameParts = props.displayName.split(" ");
+  // const name = nameParts.length===2 ? nameParts[0] : null;
 
   return (
     <div className="stuHome">
@@ -65,7 +69,7 @@ React.useEffect(() => {
         <Routes>
           <Route path="/" element={<>
             <>
-              <h4 className="heading">Welcome, {name}</h4>
+              <h4 className="heading">Welcome, {localStorage.getItem("displayName")}</h4>
               <div className="card">
                 <div className="card-body">Semester 6</div>
               </div>
@@ -83,7 +87,7 @@ React.useEffect(() => {
                     <div className="electiveBox">
                       <div className="card-body elective">
                         <h5 style={{ fontSize: "0.9rem", fontWeight: "700" }}>
-                          {subjectStatus2==true ? subjectName1 : "Hellow world"}
+                          {subjectName1}
                         </h5>
                         <p style={{ fontSize: "0.7rem", marginBottom: "0.4rem" }}>
                           {facultyName1}

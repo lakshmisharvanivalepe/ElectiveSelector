@@ -9,10 +9,12 @@ import "./Proffesorhome.css"
 import ElectiveList from './ElectiveList';
 
 function Proff(props) {
+  const mail = props.emailid;
+  // console.log(mail);
   return (
     <div>
-      <Navbar screen={"prof"}/>
-      <div style={{position: "relative", top: "5rem"}} className="professor">
+      <Navbar screen={"prof"} />
+      <div style={{ position: "relative", top: "5rem" }} className="professor">
         <Routes>
           <Route path="/" element={
             <div>
@@ -32,4 +34,4 @@ function Proff(props) {
   );
 }
 
-export default Proff
+export default Proff;
