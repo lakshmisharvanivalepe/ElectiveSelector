@@ -36,7 +36,9 @@ React.useEffect(() => {
         subjectName1: sol.sub1.subTitle,
         subjectName2: sol.sub2.subTitle,
         facultyName1: sol.sub1.facultyName,
-        facultyName2: sol.sub2.facultyName
+        facultyName2: sol.sub2.facultyName,
+        subjectStatus1: sol.sub1.subStatus,
+        subjectStatus2: sol.sub2.subStatus
       });
       setIsLoading(false);
       // console.log(details);
@@ -115,8 +117,8 @@ React.useEffect(() => {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/elecSelec" element={
           <div>
-            <StuElective elecNum={"1"}/>
-            <StuElective elecNum={"2"}/>
+            <StuElective emailid={props.emailid}/>
+            {/* <StuElective emailid={props.emailid} elecNum={"2"}/> */}
           </div>} />
         </Routes>
       </div>

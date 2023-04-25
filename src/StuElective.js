@@ -25,8 +25,8 @@ function StuElective(props) {
           return "7";
         }
         else{
-          return "6";
-        }
+          return"6";
+      }
       }
     }
     const ans=getsem();
@@ -74,7 +74,7 @@ function StuElective(props) {
   return (
     <div>
       <div className="electiveCd">
-        <h5 className="heading elective">Elective {props.elecNum}</h5>
+        <h5 className="heading elective">Elective 1</h5>
         <div className="allsubjcontainer">
           <StuSubject 
             subject={details.subjectName1}
@@ -94,13 +94,13 @@ function StuElective(props) {
         </div>
       </div>
       <div className="electiveCd">
-        <h5 className="heading elective">Elective {props.elecNum}</h5>
+        <h5 className="heading elective">Elective 2</h5>
         <div className="allsubjcontainer">
           <StuSubject
             subject={details.subjectName4}
             faculty={details.facultyName4}
            
-          />
+          />5
           <StuSubject
             subject={details.subjectName5}
             faculty={details.facultyName5}
