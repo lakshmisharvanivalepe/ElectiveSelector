@@ -35,7 +35,7 @@ React.useEffect(() => {
       
       const result = await response.json();
       const sol = result.message;
-      console.log(sol);
+      // console.log(sol);
       setDetails({
         subjectName1: sol.sub1.subTitle,
         subjectName2: sol.sub2.subTitle,

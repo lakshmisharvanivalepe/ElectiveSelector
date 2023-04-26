@@ -7,15 +7,15 @@ function StuElective(props) {
   
   useEffect(() => {
     const getDetails = async () => {
-      console.log(props.emailid)
-      const email = props.emailid;
+    console.log(props.emailid)
+    const email = props.emailid;
     let s1=email.substring(3,7);
-    console.log(s1);
+    // console.log(s1);
     const d=new Date();
-      const curYear=parseInt(d.getFullYear())
-       const curMonth=parseInt(d.getMonth())
-       const year=parseInt(s1)
-       const x=curYear-year
+    const curYear=parseInt(d.getFullYear())
+    const curMonth=parseInt(d.getMonth())
+    const year=parseInt(s1)
+    const x=curYear-year
     function getsem() {
       if(x===2&&(curMonth>=6&&curMonth<=11)){
         return "5";
@@ -47,11 +47,6 @@ function StuElective(props) {
       const result = await response.json();
       const sol=result.message;
       
-      console.log();
-      console.log(result.message);
-
-
-
       setDetails({
         subjectName1: sol.e1s1.subTitle,
         subjectName2: sol.e1s2.subTitle,

@@ -1,20 +1,18 @@
 import React from 'react';
-import "./Proffesorhome.css"
+import "./Proffesorhome.css";
 import { Link } from 'react-router-dom';
 
 function ProfSemBox(props) {
   return (
-    <div className="electiveBox profSemBox">
-        <div className="card-body sembox" >
-            <div>
-                <h5 style={{ fontSize: "1.1rem", fontWeight: "700", marginRight:"4rem", marginBottom:"0" }}>Semester {props.sem}</h5>
-            </div>
-            <div style={{display: "flex"}}>
-                <Link to="/electivelist"><button className="sembtn">Elective 1</button></Link>
-                <Link to="/electivelist"><button className="sembtn">Elective 2</button></Link>
-            </div>
+      <div className="card subjcard proflist" >
+        <div className="card-body">
+            <h5 style={{ fontSize: "1.45rem", fontWeight: "700", marginBottom:"0" }}>Semester {props.sem}</h5>
         </div>
-    </div>
+        <div className="resbtn" style={{display: "flex"}}>
+            <Link to="/electivelist" state={{ semNum: props.sem, elecNum: "1" }}><button className="sembtn defbtn">Elective 1</button></Link>
+            <Link to="/electivelist" state={{ semNum: props.sem, elecNum: "2" }}><button className="sembtn defbtn">Elective 2</button></Link>
+        </div>
+      </div>
   )
 }
 

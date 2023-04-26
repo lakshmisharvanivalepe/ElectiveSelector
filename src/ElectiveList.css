@@ -33,3 +33,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+.form-select{
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #2B3A55;
+    background-color: #d7dafc99;
+    border-radius: 5px;
+    border: 0px;
+}
