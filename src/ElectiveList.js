@@ -86,14 +86,18 @@ function ElectiveList() {
         const selectedSubjectString = event.target.value;
         console.log(selectedSubjectString)
         const subjectData  = selectedSubjectString.split(",");
-        const subject = subjectData[1];
-        const proff = subjectData[2];
+        console.log(subjectData)
+        const subject = subjectData[0];
+        const proff = subjectData[1];
 
         setCurrSubject(subject);
 
         const sub = {subTitle:subject, facultyName:proff}
 
         const topass = {semNum: semNum, electiveNum: elecNum, sub:sub ,branchList: currbranchList}
+
+        console.log("posting")
+        console.log(topass)
 
         const response = await fetch(
             "https://electiveselector.onrender.com/semData",

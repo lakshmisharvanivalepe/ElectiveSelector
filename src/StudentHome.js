@@ -45,7 +45,7 @@ React.useEffect(() => {
         subjectStatus2: sol.sub2.subStatus
       });
       setIsLoading(false);
-      console.log(details);
+      // console.log(details);
     } catch (error) {
       console.error(error);
       setDetails("An Error has occured!");

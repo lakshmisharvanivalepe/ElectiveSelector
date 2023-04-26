@@ -75,33 +75,6 @@ function Subjectcard(props) {
               name="fileName"
               ref={fileName}
             />
-            <label className="label">Select Branch/es</label>
-            <div className="branchoption">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
-                <label class="form-check-label" for="flexCheckChecked">
-                  CS
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                <label class="form-check-label" for="flexCheckChecked">
-                  IT
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                <label class="form-check-label" for="flexCheckChecked">
-                  CSAI
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                <label class="form-check-label" for="flexCheckChecked">
-                  CSB
-                </label>
-              </div>
-            </div>
           </form>
         </div>
       </div>

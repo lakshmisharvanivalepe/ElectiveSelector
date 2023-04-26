@@ -3,8 +3,8 @@ import Subjectcard from './Subjectcard';
 import "./Electivecard.css"
 
 function Electivecard(props) {
-    const email = localStorage.getItem("email");
-    // console.log(props.semNum);
+  const email = localStorage.getItem("email");
+  // console.log(props.semNum);
 
 
   const [choice1, setChoice1] = useState({
@@ -24,8 +24,6 @@ function Electivecard(props) {
   });
   const [selectedButtons, setSelectedButtons] = useState([]);
 
-  
-
   const handleButtonClick = (buttonId) => {
     setSelectedButtons((prevSelectedButtons) => {
       if (prevSelectedButtons.includes(buttonId)) {
@@ -38,7 +36,7 @@ function Electivecard(props) {
 
   const handleSubmit = async () => {
     // console.log(selectedButtons);
-    
+
     if (
       choice1.subjectName !== "N/A" ||
       choice2.subjectName !== "N/A" ||
@@ -50,10 +48,10 @@ function Electivecard(props) {
       let year = newDate.getFullYear();
 
       const currTime = new Date().toLocaleTimeString([], {
-        hour12 : false
+        hour12: false
       });
-      const  d = date + "-" + month + "-" + year;
-      
+      const d = date + "-" + month + "-" + year;
+
 
       const post_details = {
         semNum: props.semNum,
@@ -73,9 +71,8 @@ function Electivecard(props) {
         branchList: selectedButtons,
         addedBy: email,
         addedTime: d + "\n" + currTime
-      }; 
+      };
 
-      console.log(post_details);
       const response = await fetch(
         "https://electiveselector.onrender.com/addElectiveDetails",
         {
@@ -94,7 +91,7 @@ function Electivecard(props) {
       console.log("Please choose atleast one choice!");
     }
   }
-  
+
 
   return (
     <div className="electiveCd">
@@ -106,15 +103,15 @@ function Electivecard(props) {
           setE1(data);
         }} */}
         <Subjectcard onSubmit={(FormData) => {
-            if (FormData.subjectName === "") {
-              setChoice1({
-                subjectName: "N/A",
-                facultyName: "N/A",
-                fileName: null,
-              });
-            } else setChoice1(FormData);
-            // console.log(choice1);
-          }} />
+          if (FormData.subjectName === "") {
+            setChoice1({
+              subjectName: "N/A",
+              facultyName: "N/A",
+              fileName: null,
+            });
+          } else setChoice1(FormData);
+          // console.log(choice1);
+        }} />
         <Subjectcard
           onSubmit={(FormData) => {
             if (FormData.subjectName === "") {
@@ -142,39 +139,53 @@ function Electivecard(props) {
           }}
         />
 
-        <div>
-          <input
-            type="checkbox"
-            value="IT"
-            name="branch1"
-            onClick={() => handleButtonClick("IT")}
-          />{" "}
-          IT
-          <input
-            type="checkbox"
-            value="IT"
-            name="branch2"
-            onClick={() => handleButtonClick("CS")}
-          />{" "}
-          CS
-          <input
-            type="checkbox"
-            value="IT"
-            name="branch3"
-            onClick={() => handleButtonClick("CSAI")}
-          />{" "}
-          CSAI
-          <input
-            type="checkbox"
-            value="IT"
-            name="branch4"
-            onClick={() => handleButtonClick("CSB")}
-          />{" "}
-          CSB
-        </div>
+
       </div>
-      {/* schedule and post button pending */}
-      <p></p>
+      <div>
+
+        <div className="selbranch"><p> Select Branch/es </p></div>
+
+        <input
+          type="checkbox"
+          value="IT"
+          name="branch1" class="form-check-input"
+          onClick={() => handleButtonClick("IT")}
+        />{" "}
+        <label class="form-check-label electivecheckbox" for="flexCheckChecked">
+          IT
+        </label>
+
+        <input
+          type="checkbox"
+          value="IT"
+          name="branch2" class="form-check-input"
+          onClick={() => handleButtonClick("CS")}
+        />{" "}
+        <label class="form-check-label electivecheckbox" for="flexCheckChecked">
+          CS
+        </label>
+
+        <input
+          type="checkbox"
+          value="IT"
+          name="branch3" class="form-check-input"
+          onClick={() => handleButtonClick("CSAI")}
+        />{" "}
+        <label class="form-check-label electivecheckbox" for="flexCheckChecked">
+          CSAI
+        </label>
+
+        <input
+          type="checkbox"
+          value="IT"
+          name="branch4" class="form-check-input"
+          onClick={() => handleButtonClick("CSB")}
+        />{" "}
+        <label class="form-check-label electivecheckbox" for="flexCheckChecked">
+          CSB
+        </label>
+
+      </div>
 
       <br></br>
       <button

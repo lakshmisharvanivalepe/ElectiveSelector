@@ -9,9 +9,10 @@
     background-color: #7985EE;
     border-radius: 3px;
     border: 0px;
-    margin-left: 2rem;
-    margin-right: 5%;
-    width: 10rem; /* make it responsive afterwards */
+    /* margin-left: 2rem;
+    margin-right: 5%; */
+    width: 10rem !important; /* make it responsive afterwards */
+    margin: 0.4rem 0 0.4rem 0;
 }
 .sembtn:hover{
     background-color: #5766ef;
@@ -28,4 +29,23 @@
     margin: auto;
     margin-top:4%;
     padding: 1%;
+}
+
+.allprofcontainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.profcard
+{
+    border: 0.75px solid #7985EE;
+    border-radius: 18px;
+    padding: 1rem;
+    width: 250px;
+    height: 210px;
+    margin-top: 0.8rem;
+    margin-bottom: 1.5rem;
 }
