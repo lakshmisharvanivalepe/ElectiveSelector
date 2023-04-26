@@ -51,12 +51,12 @@ const googleicon = {
 
 
 function App() {
-  const [email_id, setEmail] = useState("");
+  // const [email_id, setEmail] = useState("");
   const [value, setValue] = useState("");
   const [data, setData] = useState("");
   const [displayName, setDisplayName] = useState("");
 
-  const mail = email_id;
+  const mail = value;
 
   const handleClick = async () => {
     try {
@@ -66,10 +66,10 @@ function App() {
       localStorage.setItem("displayName", result.user.displayName);
       const email = result.user.email;
       const Name = result.user.displayName;
-      setEmail(email);
+      // setEmail(email);
       setDisplayName(Name);
 
-      console.log(displayName);
+      console.log(Name);
       
       const response = await fetch(
         "https://electiveselector.onrender.com/profVerify",
@@ -115,9 +115,9 @@ function App() {
   }
 
   React.useEffect(() => {
-    
     const email = localStorage.getItem("email");
     if (email) {
+      setDisplayName(localStorage.getItem("displayName"));
       setValue(email);
       loadUser(email);
     }
@@ -147,7 +147,7 @@ function App() {
     setActiveIndex(newIndex);
   };
   
-
+  const userName = displayName;
   
 
   return (
@@ -156,7 +156,7 @@ function App() {
       {data === "prof" ? (
         <ProffesorHome emailid={mail} />
       ) : data && data === "student" ? (
-        <StudentHome emailid={mail} displayName={displayName} />
+        <StudentHome emailid={mail} displayName={userName} />
       ) : (
         <div>
           <img className="headingLogo" src={ESlogoCircleWN} alt=""></img>
