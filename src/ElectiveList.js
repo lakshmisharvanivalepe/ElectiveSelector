@@ -12,6 +12,7 @@ function ElectiveList() {
     const [subjects, setSubjects] = useState();
     const [currSubject, setCurrSubject] = useState();
     const [studentData, setStudentData] = useState();
+    const [exportData, setExportData] = useState([]);
 
     useEffect(() => {
         const getDetails = async () => {
@@ -111,8 +112,19 @@ function ElectiveList() {
         );
         const result = await response.json();
         const sol = result.message;
+
         console.log(sol);
         setStudentData(sol);
+
+        sol && sol.map((student)=>{
+            const email = student.userEmail.split("@");
+            const rollNo = email[0];
+            const currData = {Name: student.userName, Subject: student.sub.subTitle, RollNo: rollNo, Email: student.userEmail};
+            setExportData(prevData => {
+                console.log(prevData);
+                return [...prevData, currData]
+            })
+        })
     };
 
     return (
@@ -148,8 +160,7 @@ function ElectiveList() {
                   {subjects.subjectname3 && <option value={Object.values(subjects.subjectname3)}>{subjects.subjectname3.subTitle}</option>}</>
             </select>}
             </div>
-            {console.log(studentData)}
-            <ExportExcel excelData={studentData} fileName={"Semester"+semNum+"_"+currSubject} />
+            <ExportExcel excelData={exportData} fileName={"Semester"+semNum+"_Elective"+elecNum+"_"+currSubject} />
         </div>
         <div className="electiveCd tablebg">
             <table class="table table-striped table table-hover">
@@ -165,7 +176,7 @@ function ElectiveList() {
                 {studentData ? (studentData.map((student,index) =>{
                     const email = student.userEmail.split("@");
                     const rollNo = email[0];
-                    return (<tr>
+                    return (<tr key={index+1}>
                             <th scope="row">{index+1}</th>
                             <td>{student.userName}</td>
                             <td>{student.sub.subTitle}</td>
