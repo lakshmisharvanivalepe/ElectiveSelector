@@ -103,7 +103,7 @@ function StuElective(props) {
     const result = await response.json();
     const sol = result.message;
     console.log(sol);
-    window.location.reload(false);
+    // window.location.reload(false);
     
   }
   const selectChoice2 = async (e) => {
@@ -130,7 +130,7 @@ function StuElective(props) {
     const result = await response.json();
     const sol = result.message;
     console.log(sol);
-    window.location.reload(false);
+    // window.location.reload(false);
   };
   
   useEffect(() => {
