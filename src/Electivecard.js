@@ -8,18 +8,18 @@ function Electivecard(props) {
 
 
   const [choice1, setChoice1] = useState({
-    subjectName: "N/A",
-    facultyName: "N/A",
+    subjectName: "NA",
+    facultyName: "NA",
     fileName: null,
   });
   const [choice2, setChoice2] = useState({
-    subjectName: "N/A",
-    facultyName: "N/A",
+    subjectName: "NA",
+    facultyName: "NA",
     fileName: null,
   });
   const [choice3, setChoice3] = useState({
-    subjectName: "N/A",
-    facultyName: "N/A",
+    subjectName: "NA",
+    facultyName: "NA",
     fileName: null,
   });
   const [selectedButtons, setSelectedButtons] = useState([]);
@@ -38,9 +38,9 @@ function Electivecard(props) {
     // console.log(selectedButtons);
 
     if (
-      choice1.subjectName !== "N/A" ||
-      choice2.subjectName !== "N/A" ||
-      choice3.subjectName !== "N/A"
+      choice1.subjectName !== "NA" ||
+      choice2.subjectName !== "NA" ||
+      choice3.subjectName !== "NA"
     ) {
       let newDate = new Date();
       let date = newDate.getDate();
