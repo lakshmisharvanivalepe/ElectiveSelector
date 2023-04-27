@@ -59,14 +59,17 @@ function Electivecard(props) {
         sub1: {
           subTitle: choice1.subjectName,
           facultyName: choice1.facultyName,
+          pdfUrl: choice1.fileName,
         },
         sub2: {
           subTitle: choice2.subjectName,
           facultyName: choice2.facultyName,
+          pdfUrl: choice2.fileName,
         },
         sub3: {
           subTitle: choice3.subjectName,
           facultyName: choice3.facultyName,
+          pdfUrl: choice3.fileName,
         },
         branchList: selectedButtons,
         addedBy: email,
@@ -103,21 +106,21 @@ function Electivecard(props) {
           setE1(data);
         }} */}
         <Subjectcard onSubmit={(FormData) => {
-          if (FormData.subjectName === "") {
-            setChoice1({
-              subjectName: "N/A",
-              facultyName: "N/A",
-              fileName: null,
-            });
-          } else setChoice1(FormData);
-          // console.log(choice1);
-        }} />
+            if (FormData.subjectName === "") {
+              setChoice1({
+                subjectName: "NA",
+                facultyName: "NA",
+                fileName: null,
+              });
+            } else setChoice1(FormData);
+            // console.log(choice1);
+          }} />
         <Subjectcard
           onSubmit={(FormData) => {
             if (FormData.subjectName === "") {
               setChoice2({
-                subjectName: "N/A",
-                facultyName: "N/A",
+                subjectName: "NA",
+                facultyName: "NA",
                 fileName: null,
               });
             } else setChoice2(FormData);
@@ -129,8 +132,8 @@ function Electivecard(props) {
           onSubmit={(FormData) => {
             if (FormData.subjectName === "") {
               setChoice3({
-                subjectName: "N/A",
-                facultyName: "N/A",
+                subjectName: "NA",
+                facultyName: "NA",
                 fileName: null,
               });
             } else setChoice3(FormData);
