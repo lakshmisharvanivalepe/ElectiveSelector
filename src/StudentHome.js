@@ -93,9 +93,9 @@ React.useEffect(() => {
                           {facultyName1}
                         </p>
                       </div>
-                      {subjectStatus1==true && <div className="downbtn">
+                      {/* {subjectStatus1==true && <div className="downbtn">
                       <ion-icon name="arrow-down-circle"></ion-icon>
-                      </div>}
+                      </div>} */}
                     </div>
                   </li>
                   <li>
@@ -108,9 +108,9 @@ React.useEffect(() => {
                           {facultyName2}
                         </p>
                       </div>
-                      {subjectStatus2==true && <div className="downbtn">
+                      {/* {subjectStatus2==true && <div className="downbtn">
                       <ion-icon name="arrow-down-circle"></ion-icon>
-                      </div>}
+                      </div>} */}
                     </div>
                   </li>
                 </ol>
