@@ -10,5 +10,7 @@ The Elective Selector Application is a web and Android app designed to streamlin
 
 - **Professor Dashboard**: Professors have a dedicated dashboard where they can view a table of students enrolled in their elective subjects for the semester. This allows professors to easily track which students have chosen which electives.
 
+- **Export to Excel Sheets**: Professors can export the elective selection data in a table format to Excel sheets. This feature enables easy manual updates and further analysis if required.
+
 - **Announcement Screen**: Both students and professors have access to an announcement screen where important messages and updates are posted. This keeps everyone informed and ensures seamless communication within the app.
 
