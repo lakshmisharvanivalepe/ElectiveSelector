@@ -14,3 +14,5 @@ The Elective Selector Application is a web and Android app designed to streamlin
 
 - **Announcement Screen**: Both students and professors have access to an announcement screen where important messages and updates are posted. This keeps everyone informed and ensures seamless communication within the app.
 
+Website Images available. [Checkout](https://github.com/sanskruti-shahu/ElectiveSelector/tree/main/src/website_images)
+
