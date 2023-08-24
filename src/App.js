@@ -1,5 +1,4 @@
 import React from "react";
-// import { BrowserRouter, Route, Link } from 'react-router-dom';
 import "./App.css";
 import {
   Button,
@@ -18,7 +17,6 @@ import img5 from "./images/img5.svg";
 import ESlogoCircleWN from "./images/ESlogoCircleWN.svg";
 import StudentHome from "./StudentHome";
 import {useState } from "react";
-// import { SignInWithGoogle } from "./Firebase";
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
 import ProffesorHome from "./ProffesorHome";
@@ -66,10 +64,8 @@ function App() {
       localStorage.setItem("displayName", result.user.displayName);
       const email = result.user.email;
       const Name = result.user.displayName;
-      // setEmail(email);
-      setDisplayName(Name);
 
-      console.log(Name);
+      setDisplayName(Name);
       
       const response = await fetch(
         "https://electiveselector.onrender.com/profVerify",
@@ -81,14 +77,11 @@ function App() {
           body: JSON.stringify({ userEmail: email }),
         }
       );
+
       const ans = await response.json();
       setData(ans.message);
 
-
-      console.log(ans.message);
-      // console.log(res);
     } catch (error) {
-      console.error(error);
       setData("An Error has occured!");
     }
   };
@@ -167,10 +160,7 @@ function App() {
                   Welcome!!
                 </h1>
                 <p className="text-justify">
-                The Elective Selector app helps college students choose elective subjects based on their interests and career goals. It offers 2-4 subject options with resources for each subject, making it easy
-to select electives. Its user-friendly interface and cross-platform compatibility make it accessible and convenient. The app can also include a collaborative community feature for students
-to connect and receive feedback. The Elective Selector app offers a valuable solution to simplify the elective selection and gets rid of the need for manual paper-based processes, speeds up
-elective selection process.
+                Empower your college journey with streamlined elective selection. No more tedious paper-based processes - our user-friendly interface offers 2-4 subject options aligned with your interests and career goals, complete with comprehensive resources. Seamlessly accessible across devices, the app redefines convenience. Engage with a collaborative community of students for insights and feedback. Embrace efficiency and take charge of your academic path. Say hello to a future where selecting electives is inspiring, informed, and effortless - Welcome to the Elective Selector App!
                 </p>
               </Col>
 
@@ -235,6 +225,7 @@ elective selection process.
             <img src={googleicon.src} alt="" className="icon"></img>
             <span>Continue with Google</span>
           </Button>
+          <p style={{fontSize:"10px", fontWeight:"bold"}}>Login with Institute Id only.</p>
         </div>
       )}
       
